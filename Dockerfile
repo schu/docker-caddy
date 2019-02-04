@@ -2,7 +2,7 @@ FROM alpine:3.9
 
 RUN apk add --no-cache openssh-client git curl
 
-RUN cd /tmp/ && curl -fsSL "https://caddyserver.com/download/linux/amd64?plugins=tls.dns.route53&license=personal" | tar xzvf - caddy && install -m 0755 caddy /usr/bin/caddy
+RUN cd /tmp/ && curl -fsSL "https://caddyserver.com/download/linux/amd64?plugins=http.realip,tls.dns.route53&license=personal&telemetry=off" | tar xzvf - caddy && install -m 0755 caddy /usr/bin/caddy
 
 EXPOSE 80 443 2015
 VOLUME /root/.caddy /srv
